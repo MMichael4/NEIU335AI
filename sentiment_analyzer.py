@@ -26,12 +26,12 @@ def clean_text(text):
     tokens = text.split()
     return tokens
 
-# 1. Add 15+ positive and 15+ negative words
+# 1. Adds 15+ positive words
 positive_words = {
     'happy', 'joyful', 'love', 'excellent', 'great', 'fantastic', 'amazing', 'wonderful',
     'delightful', 'awesome', 'pleasant', 'enjoyable', 'blessed', 'cheerful', 'smile', 'good'
 }
-
+# 2. Adds 15+ Negative words
 negative_words = {
     'sad', 'angry', 'hate', 'horrible', 'terrible', 'awful', 'worst', 'disgusting',
     'depressing', 'bad', 'painful', 'annoying', 'frustrating', 'upset', 'miserable', 'ugly'
@@ -41,7 +41,7 @@ negative_words = {
 print("Positive Lexicon:", sorted(positive_words))
 print("Negative Lexicon:", sorted(negative_words))
 
-# --- Interactive Sentiment Testing ---
+# Interactive Sentiment Testing 
 print("\nEnter sentences to analyze sentiment (type 'exit' to quit):")
 while True:
     text = input('> ').strip()
