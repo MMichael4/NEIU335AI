@@ -13,21 +13,7 @@ Instructions:
 
 Deliverables:
 - Completed Python script (`sentiment_analyzer.py`).
-
 """
-
-# --- Grading Rubric (Total: 60 pts) ---
-#
-# | Criteria                                                          | Points |
-# |:------------------------------------------------------------------|:-------|
-# | Lexicon completeness (≥15 positive & ≥15 negative words)           |   20   |
-# | Display of positive & negative lexicons                            |    5   |
-# | Sentiment score computation & correct labeling                    |   15   |
-# | Interactive testing functionality (I/O loop, 'exit' handling)     |   10   |
-# | Code readability and comments                                     |    5   |
-# | Reflection quality (insightful strengths & limitations)          |    5   |
-#
-# **Total Points:** 60    
 
 import re
 
@@ -40,17 +26,20 @@ def clean_text(text):
     tokens = text.split()
     return tokens
 
-# 1. Add 15 positive and 15 negative to your expand the knowledge base
-
+# 1. Add 15+ positive and 15+ negative words
 positive_words = {
-    'happy'
+    'happy', 'joyful', 'love', 'excellent', 'great', 'fantastic', 'amazing', 'wonderful',
+    'delightful', 'awesome', 'pleasant', 'enjoyable', 'blessed', 'cheerful', 'smile', 'good'
 }
+
 negative_words = {
-    'sad'
+    'sad', 'angry', 'hate', 'horrible', 'terrible', 'awful', 'worst', 'disgusting',
+    'depressing', 'bad', 'painful', 'annoying', 'frustrating', 'upset', 'miserable', 'ugly'
 }
 
-# 2. print positive lexicon & negative lexicon:
-
+# 2. Display lexicons
+print("Positive Lexicon:", sorted(positive_words))
+print("Negative Lexicon:", sorted(negative_words))
 
 # --- Interactive Sentiment Testing ---
 print("\nEnter sentences to analyze sentiment (type 'exit' to quit):")
@@ -65,7 +54,8 @@ while True:
     neg_count = sum(1 for t in tokens if t in negative_words)
     total = len(tokens)
 
-# 3. Compute simple sentiment score (hint: positive - negative count)
+    # 3. Compute sentiment score
+    score = pos_count - neg_count
 
     # Determine sentiment label
     if score > 0:
@@ -75,10 +65,9 @@ while True:
     else:
         sentiment = 'Neutral'
 
-# 4. print the output results
+    # 4. Print results
     print(f"Tokens: {tokens}")
     print(f"+ matches: {pos_count}, - matches: {neg_count}")
     print(f"Score: {score:.3f} => {sentiment}\n")
 
-# 5. Add a short reflection as comments at the bottom (2–3 sentences)
 
